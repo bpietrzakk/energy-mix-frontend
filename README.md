@@ -1,73 +1,58 @@
-# React + TypeScript + Vite
+# UK Energy Mix
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Web application showing the UK energy mix forecast for the next 48 hours and a calculator for the optimal EV charging window.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Stacked bar chart of energy sources (wind, solar, nuclear, hydro, biomass) for today, tomorrow, and the day after
+- Clean energy percentage bars per day
+- EV charging optimizer — pick a duration (1–6 hours) and get the cleanest charging window in the next 48 hours
 
-## React Compiler
+## Tech stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+React 18 · TypeScript · Vite · Recharts
 
-## Expanding the ESLint configuration
+## Requirements
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Node.js 18+
+- Backend API running on `http://localhost:8080` ([energymix](../energymix))
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Setup
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+```bash
+# 1. Install dependencies
+npm install
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# 2. Start the dev server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Open [http://localhost:5173](http://localhost:5173).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+The dev server proxies `/api/*` requests to `http://localhost:8080`, so the backend must be running first.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Environment variables
+
+| Variable | Default | Description |
+|---|---|---|
+| `VITE_API_BASE_URL` | ` ` (uses Vite proxy) | Full API base URL for production deployments |
+
+Copy `.env.example` to `.env` and adjust if needed.
+
+## Build
+
+```bash
+npm run build
+```
+
+Output goes to `dist/`. Set `VITE_API_BASE_URL` to the production API URL before building.
+
+## Project structure
+
+```
+src/
+├── api/          # Fetch functions for each endpoint
+├── components/   # React components
+├── types/        # TypeScript interfaces matching the API contract
+└── App.tsx       # Root component and layout
 ```
