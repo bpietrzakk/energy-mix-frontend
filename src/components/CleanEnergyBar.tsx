@@ -1,6 +1,5 @@
 import type { DayEnergyMix } from '../types'
-
-const DAY_LABELS = ['Today', 'Tomorrow', 'Day after tomorrow']
+import { DAY_LABELS } from '../utils/dayLabels'
 
 interface Props {
   days: DayEnergyMix[]

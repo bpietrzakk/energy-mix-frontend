@@ -8,6 +8,7 @@ import {
   Legend,
 } from 'recharts'
 import type { DayEnergyMix } from '../types'
+import { DAY_LABELS } from '../utils/dayLabels'
 
 const SOURCE_COLORS = {
   wind: '#4ade80',
@@ -17,7 +18,6 @@ const SOURCE_COLORS = {
   biomass: '#a78bfa',
 } as const
 
-const DAY_LABELS = ['Today', 'Tomorrow', 'In 2 days']
 
 interface Props {
   days: DayEnergyMix[]
