@@ -34,7 +34,7 @@ export function EnergyMixChart({ days }: Props) {
       <BarChart data={data} margin={{ top: 8, right: 16, left: 0, bottom: 8 }}>
         <XAxis dataKey="name" />
         <YAxis domain={[0, 100]} unit="%" width={40} />
-        <Tooltip formatter={(value: number) => `${value.toFixed(1)}%`} />
+        <Tooltip formatter={(value) => typeof value === 'number' ? `${value.toFixed(1)}%` : value} />
         <Legend />
         {(Object.keys(SOURCE_COLORS) as (keyof typeof SOURCE_COLORS)[]).map((source) => (
           <Bar key={source} dataKey={source} stackId="mix" fill={SOURCE_COLORS[source]} />
