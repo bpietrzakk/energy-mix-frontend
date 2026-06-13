@@ -17,7 +17,7 @@ const SOURCE_COLORS = {
   biomass: '#a78bfa',
 } as const
 
-const DAY_LABELS = ['Today', 'Tomorrow', 'Day after tomorrow']
+const DAY_LABELS = ['Today', 'Tomorrow', 'In 2 days']
 
 interface Props {
   days: DayEnergyMix[]

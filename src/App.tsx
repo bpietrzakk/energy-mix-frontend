@@ -8,7 +8,7 @@ import type { EnergyMixResponse } from './types'
 const containerStyle: React.CSSProperties = {
   maxWidth: 860,
   margin: '0 auto',
-  padding: '24px 24px 64px',
+  padding: '24px clamp(16px, 4vw, 24px) 64px',
   fontFamily: 'system-ui, -apple-system, sans-serif',
   color: '#111827',
   lineHeight: 1.6,

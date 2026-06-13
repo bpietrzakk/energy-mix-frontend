@@ -1,14 +1,38 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 :root {
   font: 16px/1.5 system-ui, 'Segoe UI', Roboto, sans-serif;
-  color-scheme: light dark;
 }
 
 body {
-  margin: 0;
+  background: #f9fafb;
+  color: #111827;
+  min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
 }
 
 #root {
-  max-width: 1024px;
-  margin: 0 auto;
-  padding: 0 16px;
+  width: 100%;
+}
+
+@media (max-width: 480px) {
+  .recharts-legend-item-text {
+    font-size: 12px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
