@@ -1,6 +1,6 @@
 import type { EnergyMixResponse, ApiError } from '../types'
 
-const BASE_URL = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8080'
+const BASE_URL = import.meta.env.VITE_API_BASE_URL ?? ''
 
 export async function fetchEnergyMix(): Promise<EnergyMixResponse> {
   const res = await fetch(`${BASE_URL}/api/energy-mix`)
