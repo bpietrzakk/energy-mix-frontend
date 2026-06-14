@@ -31,7 +31,7 @@ React 18 · TypeScript · Vite · Recharts
 ### Requirements
 
 - Node.js 18+
-- Backend API running on `http://localhost:8080` [energymix]((https://github.com/bpietrzakk/energy-mix-backend))
+- Backend API running on `http://localhost:8080` ([energymix](https://github.com/bpietrzakk/energy-mix-backend))
 
 ### Setup
 
