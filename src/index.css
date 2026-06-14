@@ -28,6 +28,13 @@ img, svg {
   .recharts-legend-item-text {
     font-size: 12px !important;
   }
+
+  .recharts-default-legend {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 4px 8px !important;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
